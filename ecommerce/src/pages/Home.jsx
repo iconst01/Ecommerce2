@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";//import slick css styles for the carousel
+import "slick-carousel/slick/slick-theme.css";//import slick them css styles 
 
 
 import './../App.css';
@@ -13,12 +13,12 @@ const Home = () => {
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false, 
+    speed: 500,//transition speed in milliseconds
+    slidesToShow: 1,//show one slide at the time 
+    slidesToScroll: 1,//scroll one slide at a time 
+    autoplay: true,//autoplay
+    autoplaySpeed: 5000,//set aoutplay speed to 5 sec 
+    arrows: false, //no arrows
   };
 
   // Example customer reviews
@@ -119,7 +119,7 @@ const Home = () => {
     
       </section>
 
-    
+    {/*bottom part of customer reviews */}
       <section className="customer-reviews">
         <h2>What Our Customers Are Saying</h2>
         <Slider {...sliderSettings}>
@@ -138,7 +138,7 @@ const Home = () => {
         </Slider>
       </section>
 
-      {/* Footer */}
+      {/* Footer component */}
       <Footer />
     </div>
   );

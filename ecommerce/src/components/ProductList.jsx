@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import ProductCard from "./ProductCard";  
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect } from "react";//import hooks to manage state and side effects
+import axios from "axios";//import axios for making API request 
+import ProductCard from "./ProductCard";  //import productcard component to display individual product 
+import 'bootstrap/dist/css/bootstrap.min.css';//import bootstrap for layout
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [sortBy, setSortBy] = useState("");  // for sorting products
+const ProductList = () => { //define functional component 
+  const [products, setProducts] = useState([]);//state to store fetched products 
+  const [sortBy, setSortBy] = useState("");  // state for sorting criteria 
   const [filterCategory, setFilterCategory] = useState("");  // for filtering by category
-  const [searchQuery, setSearchQuery] = useState("");  // for search/filter by name
+  const [searchQuery, setSearchQuery] = useState("");  // state for search query
 
   useEffect(() => {
+    //fetching product from back end api 
     const fetchProducts = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/products");

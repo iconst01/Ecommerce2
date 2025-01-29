@@ -1,48 +1,44 @@
-import { useState } from "react";
-import axios from "axios";
-import './../styles/ContactForm.css'
+import { useState } from "react";//Importing useState hook from React
+import axios from "axios";//Importing axios for making HTTP request 
+import './../styles/ContactForm.css'//Importing custom styles for the contact form
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  //initializing errorMessage state to store validation or error messages 
+  const [formData, setFormData] = useState({ //useState is the values and formData box where value are kept and setFormData update value 
     name: "",
     email: "",
     message: "",
   });
-
+//initializing state to store error message
   const [errorMessage, setErrorMessage] = useState("");
-
+//handlechange function to update state values for te form fields as user types 
   const handleChange = (e) => {
+    //spread the existing formData and update and update only the field that changed (using e.target.name to identify the field)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+//handlesubmit function to handle form submission and validation 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation checks
+    //check if all fields are filled out 
     if (!formData.name || !formData.email || !formData.message) {
-      setErrorMessage("All fields are required.");
-      return;
+      setErrorMessage("All fields are required.");//set error message if any field is empty
+      return;//stop further execution if validation fails
     }
-
+//check if email is in a valid format using a regular expression
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      setErrorMessage("Please enter a valid email.");
+      setErrorMessage("Please enter a valid email.");//set error messsage if email format is invalid 
       return;
     }
-
+//check if the message is at least 10 characters long 
     if (formData.message.length < 10) {
-      setErrorMessage("Message must be at least 10 characters.");
-      return;
+      setErrorMessage("Message must be at least 10 characters.");//error message if its to short
+      return;//stop further execution if validation fails
     }
 
     setErrorMessage(""); // Clear error message if validation passes
 
-    try {
-      await axios.post("http://localhost:5000/contact", formData);
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" }); // Reset form
-    } catch {
-      setErrorMessage("Error sending message.");
-    }
   };
 
   return (

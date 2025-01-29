@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Contact from "./pages/Contact";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";//import router components from react router
+import Home from "./pages/Home";//import home component(home pg)
+import Products from "./pages/Products";//import products component (product page)
+import Contact from "./pages/Contact";//import contact component (for the contact page)
 
 function App() {
   return (
-    <Router>
+    <Router>{/*the router component wraps all routes and enable navigation */}
       <Routes>
+        {/*the routes component holds all the routes of the app */}
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
@@ -15,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;//export the app component as the default export 
