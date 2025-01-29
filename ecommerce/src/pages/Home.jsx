@@ -18,7 +18,7 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    arrows: false, // If you want navigation arrows, set to true
+    arrows: false, 
   };
 
   // Example customer reviews
