@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f1f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+}
+.Heroimg {
+  max-height: 550px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.145);
+  border-radius: 10px;
+  font-size: clamp(1rem, 4vw, 2rem);
+  max-width: 80%;
+}
+
+.descriptHero {
+  max-width: 10%;
+}
+
+.hero h1 {
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  margin-bottom: 20px;
+}
+
+.hero button {
+  font-size: 1rem;
+  background-color: #0a5ca4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  max-width: 80px;
+  padding: 10px 15px;
+}
+
+.shop {
+  font-size: 1rem;
+  background-color: #0a5ca4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  max-width: 80px;
+  padding: 10px 15px;
+}
+
+.hero button a {
+  text-decoration: none;
+  color: white;
+}
+
+.hero button:hover {
+  background-color: #084c79;
+}
+
+/* Card Design */
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  color: #165798;
+  margin: 15px 0;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #4580d9;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card button {
+  background-color: #165798;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card button:hover {
+  background-color: #4a7ebd;
+}
+
+/* Video */
+.stetvideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.stetvideo iframe {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Contact Card Styling */
+.cta-button {
+  background-color: #165798;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-width: 10%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.cta-button:hover {
+  background-color: #4a7ebd;
+}
+
+.contact {
+  display: flex;
+  padding: 60px 20px;
+  background-color: #d9e6f2;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.imgC {
+  width: 20rem;
+  margin:auto;
+  border-radius: 10px;
+}
+
+.contact-text {
+  width: 100%;
+  max-width: 100%;
+  color: #4a7ebd;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  color: #0a5ca4;
+  margin-bottom: 20px;
+}
+
+/* Customer Reviews Section */
+.customer-reviews {
+  padding: 60px 20px;
+  background-color: #f1f1f1;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.customer-reviews h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #165798;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Each Review Slide */
+.review-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Review Card Style */
+.review-card {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.review-content h3 {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #165798;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.review-content p {
+  font-size: 1em;
+  color: #4580d9;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.review-content strong {
+  font-weight: 700;
+  color: #165798;
+}
+
+.review-content .rating {
+  margin: 10px 0;
+  color: #4580d9;
+}
+
+/* Slick Dots (Navigation) */
+.slick-dots {
+  bottom: -30px;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-dots li {
+  margin: 0 8px;
+}
+
+.slick-dots li button {
+  background-color: #165798;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #333;
+}
+
+
+@media screen and (max-width: 768px) {
+  .hero-content {
+    left: 50%;
+    /* max-width: 80%; */
+    font-size: clamp(1rem, 4vw, 2rem);
+  }
+
+
+  /* Fix descriptHero width and text size */
+  .descriptHero {
+    max-width: 100%;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Make text responsive */
+    text-align: center;
+    margin: 0 auto; /* Center text */
+  }
+
+
+
+
+  .product-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact {
+    flex-direction: column;
+    text-align: center;
+  }
+}
