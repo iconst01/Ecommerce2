@@ -1,39 +1,39 @@
 
-import express from "express";
-import mysql from "mysql2";
-import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
-import dotenv from "dotenv";
+import express from "express";//import the express module to create a server
+import mysql from "mysql2";//import the mysql2 module to interact with the mysql database
+import cors from "cors";//import cors to handle cross-origin resource sharing/back interact with front 
+import path from "path";//import path module for handling file and directory path
+import { fileURLToPath } from "url";//import used in ES module to handle file paths 
+import dotenv from "dotenv";//import dotenv to read enviroment varibles from a .env file store database credential
 
-dotenv.config();
+dotenv.config();//load enviroment variables from a .env file
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);//get current file path using es module import
+const __dirname = path.dirname(__filename);//get directory name of the current file
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use('/images', express.static('/public/images'));
-app.use(express.static(path.join(__dirname, "../dist")));
+const app = express();//create an instance of the expressapp
+app.use(cors());//enable cross-origin resources sharing for all routes
+app.use(express.json());//middlewate to parse json data sent in request for server to handle json payloads
+app.use('/images', express.static('/public/images'));//serve static images from the 'public/images' directory
+app.use(express.static(path.join(__dirname, "../dist")));//serve static files from the 'dist' folder (where the frontend might be built)
 
 
 // Set up MySQL connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+  host: process.env.DB_HOST,//database host 
+  user: process.env.DB_USER,//database user 
+  password: process.env.DB_PASSWORD,//database password
+  database: process.env.DB_NAME,//databse name
+});//lcredential stored in the .env
 
 // Connect to database
-db.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL database');
+db.connect((err) => {//function stablish  connetion to database
+  if (err) throw err;//if there's an error, stop execution and throw the error
+  console.log('Connected to MySQL database');//log a message if the connection is succesful
 });
 
-app.get('/api/products', (req, res) => {
-  const { priceRange, category } = req.query;
+app.get('/api/products', (req, res) => {//define GET API endpoint that listens for requests at /api/products
+  const { priceRange, category } = req.query;//extract pricerange and category from query params
   
   // Log the query parameters received from the frontend
   console.log('Received query parameters:', req.query);
@@ -59,16 +59,16 @@ app.get('/api/products', (req, res) => {
       console.error('Error executing query:', err);
       return res.status(500).json({ message: 'Failed to fetch products' });
     }
-    res.json(results);
+    res.json(results);//return the query results as a JSON response 
   });
 });
 
 
-app.get("*", (req, res) => {
+app.get("*", (req, res) => {//catch-all route that handles any other request that dont match the API routes
   res.sendFile(path.join(__dirname, "../dist/index.html"))
-})
+})//sends the index.html file from the dist folder.
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;//set the port from enviroment variable or default to 3000
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

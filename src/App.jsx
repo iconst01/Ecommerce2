@@ -5,10 +5,10 @@ import Contact from "./pages/Contact";//import contact component (for the contac
 
 function App() {
   return (
-    <Router>{/*the router component wraps all routes and enable navigation */}
+    <Router>{/*the router component wraps all routes and allows navagation for spa */}
       <Routes>
         {/*the routes component holds all the routes of the app */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />{/*route specific path to home */}
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

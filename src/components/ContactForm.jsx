@@ -1,5 +1,5 @@
 import { useState } from "react";//Importing useState hook from React
-import axios from "axios";//Importing axios for making HTTP request 
+// import axios from "axios";//Importing axios for making HTTP request 
 import './../styles/ContactForm.css'//Importing custom styles for the contact form
 
 const ContactForm = () => {
@@ -18,7 +18,7 @@ const ContactForm = () => {
   };
 //handlesubmit function to handle form submission and validation 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();//prevents the default form submission behavior (which will reload the page)
 
     // Basic validation checks
     //check if all fields are filled out 
@@ -29,7 +29,7 @@ const ContactForm = () => {
 //check if email is in a valid format using a regular expression
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       setErrorMessage("Please enter a valid email.");//set error messsage if email format is invalid 
-      return;
+      return;//stop further execution if validation fails
     }
 //check if the message is at least 10 characters long 
     if (formData.message.length < 10) {
@@ -42,28 +42,28 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form onSubmit={handleSubmit}>{/*form submission triggers handlesubmit */}
+      <div className="form-group">{/*name input fiel */}
         <label>Name:</label>
         <input
           type="text"
           name="name"
-          value={formData.name}
-          onChange={handleChange}
+          value={formData.name}//controlled input value
+          onChange={handleChange}//updates state when user types
         />
       </div>
 
-      <div className="form-group">
+      <div className="form-group">{/* email input field */}
         <label>Email:</label>
         <input
           type="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          value={formData.email}//controlled input value
+          onChange={handleChange}// updates state when user types 
         />
       </div>
 
-      <div className="form-group">
+      <div className="form-group">{/*message input field*/}
         <label>Message:</label>
         <textarea
           name="message"
@@ -71,10 +71,10 @@ const ContactForm = () => {
           onChange={handleChange}
         ></textarea>
       </div>
-
+{/*display error message if validation fails */}
       {errorMessage && <div className="error">{errorMessage}</div>}
 
-      <button type="submit">Submit</button>
+      <button type="submit">Submit</button>{/*submit button*/}
     </form>
   );
 };

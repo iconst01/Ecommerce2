@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";//import slick css styles for the carousel
-import "slick-carousel/slick/slick-theme.css";//import slick them css styles 
+import Slider from "react-slick";// Importing the Slider component from the slick-carousel package to create a carousel of customer reviews
+import "slick-carousel/slick/slick.css";//import slick default css styles for the carousel
+import "slick-carousel/slick/slick-theme.css";//import slick theme css sfor carousel customization
 
 
 import './../App.css';
@@ -11,8 +11,8 @@ import './../App.css';
 const Home = () => {
   // Slider settings for customer reviews
   const sliderSettings = {
-    dots: true,
-    infinite: true,
+    dots: true,//navigation dots
+    infinite: true,//enable infinite scrolling
     speed: 500,//transition speed in milliseconds
     slidesToShow: 1,//show one slide at the time 
     slidesToScroll: 1,//scroll one slide at a time 
@@ -122,7 +122,7 @@ const Home = () => {
     {/*bottom part of customer reviews */}
       <section className="customer-reviews">
         <h2>What Our Customers Are Saying</h2>
-        <Slider {...sliderSettings}>
+        <Slider {...sliderSettings}>{/*slick carousel that displays customer reviews*/}
           {reviews.map((review, index) => (
             <div key={index} className="review-slide">
               <div className="review-card">
